@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">signature</string>
+    <string name="clear_pad">Clear Pad</string>
+    <string name="save_signature">Save Signature</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_invoice">Invoice</string>
+    <string name="title_history">History</string>
+    <string name="Requests">Requests</string>
+    <string name="title_upload">Send Data</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
