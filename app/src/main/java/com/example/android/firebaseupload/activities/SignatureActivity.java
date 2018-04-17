@@ -49,30 +49,25 @@ public class SignatureActivity extends AppCompatActivity {
             public void onStartSigning() {
 
             }
-
             @Override
             public void onSigned() {
                 mSaveButton.setEnabled(true);
                 mClearButton.setEnabled(true);
             }
-
             @Override
             public void onClear() {
                 mSaveButton.setEnabled(false);
                 mClearButton.setEnabled(false);
             }
         });
-
         mClearButton = (Button) findViewById(R.id.clear_button);
         mSaveButton = (Button) findViewById(R.id.save_button);
-
         mClearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mSignaturePad.clear();
             }
         });
-
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

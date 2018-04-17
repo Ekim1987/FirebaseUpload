@@ -79,19 +79,15 @@ public class ImageUpload {
         this.invoiceCounter=invoiceCounter;
 
     }
-
     public String getPharmacyName() {
         return pharmacyName;
     }
-
     public void setPharmacyName(String pharmacyName) {
         this.pharmacyName = pharmacyName;
     }
-
     public String getPracticeNo() {
         return practiceNo;
     }
-
     public void setPracticeNo(String practiceNo) {
         this.practiceNo = practiceNo;
     }

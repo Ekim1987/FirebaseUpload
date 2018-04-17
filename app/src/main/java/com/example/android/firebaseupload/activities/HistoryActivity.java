@@ -51,17 +51,13 @@ import java.util.Map;
 import static com.example.android.firebaseupload.R.id.pharmacyName;
 import static com.example.android.firebaseupload.R.id.practiceNo;
 
-public class HistoryActivity extends AppCompatActivity implements Filterable{
+public class HistoryActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private RecyclerView recyclerView;
+    DataSnapshot dataSnapshot;
     ArrayList<ImageUpload> mImageUpload = new ArrayList<>();
-
     private FirebaseRecyclerAdapter firebaseRecyclerAdapter;
     LinearLayoutManager linearLayoutManager;
-    StorageReference storageReference;
-    FirebaseStorage storage;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,8 +71,6 @@ public class HistoryActivity extends AppCompatActivity implements Filterable{
         toolbar.setTitle("History");
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
-
-
         mImageUpload = new ArrayList<>();
         recyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -86,100 +80,125 @@ public class HistoryActivity extends AppCompatActivity implements Filterable{
         //progressDialog.show();
         databaseReference = FirebaseDatabase.getInstance().getReference(InvoiceActivity.FB_DATABASE_PATH);
         databaseReference.keepSynced(true);
-
         //progressDialog.dismiss();
     }
     @Override
     protected void onStart() {
         super.onStart();
-         firebaseRecyclerAdapter=new FirebaseRecyclerAdapter<ImageUpload,HistoryViewHolder>(ImageUpload.class,R.layout.image_item,HistoryViewHolder.class,databaseReference) {
-             @Override
-             protected void populateViewHolder(HistoryViewHolder viewHolder, final ImageUpload model, final int position) {
-
+        firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<ImageUpload, HistoryViewHolder>(ImageUpload.class, R.layout.image_item, HistoryViewHolder.class, databaseReference) {
+            @Override
+            protected void populateViewHolder(HistoryViewHolder viewHolder, final ImageUpload model, final int position) {
                 viewHolder.set_pharmacy.setText(model.getPharmacyName());
-                 viewHolder.set_practice.setText(model.getPracticeNo());
-
-                 viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-                     @Override
-                     public boolean onLongClick(View v) {
-                         AlertDialog.Builder builder=new AlertDialog.Builder(HistoryActivity.this);
-                         builder.setMessage("Do you want to delete this data?").setCancelable(true).setPositiveButton("Yes",new DialogInterface.OnClickListener(){
-
-                             @Override
-                             public void onClick(DialogInterface dialog, int which) {
-                                 int selectedItems = position;
-                                 firebaseRecyclerAdapter.getRef(selectedItems).removeValue();
-                                 firebaseRecyclerAdapter.notifyItemRemoved(selectedItems);
-                                 recyclerView.invalidate();
-                                 onStart();
-
-                             }
-                         }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-                             @Override
-                             public void onClick(DialogInterface dialog, int which) {
-                                 dialog.cancel();
-                             }
-                         });
-                         AlertDialog dialog =builder.create();
-                         dialog.setTitle("Confirm");
-                         dialog.show();
-
-                         return false;
-                     }
-                 });viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-
-                     @Override
-                     public void onClick(View v) {
-                         Intent intent=new Intent(HistoryActivity.this,DetailActivity.class);
-                         intent.putExtra("PHARMACY_KEY",model.getPharmacyName());
-                         intent.putExtra("PRACTICE_KEY", model.getPracticeNo());
-
-                         HistoryActivity.this.startActivity(intent);
-                     }
-                 });
-
-
-             }
-         };recyclerView.setAdapter(firebaseRecyclerAdapter);
-
-
-    }
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.menu_search, menu);
-        MenuItem menuItem = menu.findItem(R.id.menuSearch);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
-        searchView.setQueryHint("Pharmacy Name");
-
-        return true;
-
-
-    }
-
-
-    @Override
-    public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence charSequence) {
-                String charString =charSequence.toString();
-                if (charString.isEmpty()) {
-
-                }
-                return null;
-            }
-
-            @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-
+                viewHolder.set_practice.setText(model.getPracticeNo());
+                viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(HistoryActivity.this);
+                        builder.setMessage("Do you want to delete this data?").setCancelable(true).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                int selectedItems = position;
+                                firebaseRecyclerAdapter.getRef(selectedItems).removeValue();
+                                firebaseRecyclerAdapter.notifyItemRemoved(selectedItems);
+                                recyclerView.invalidate();
+                                onStart();
+                            }
+                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.setTitle("Confirm");
+                        dialog.show();
+                        return false;
+                    }
+                });
+                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(HistoryActivity.this, DetailActivity.class);
+                        intent.putExtra("PHARMACY_KEY", model.getPharmacyName());
+                        intent.putExtra("PRACTICE_KEY", model.getPracticeNo());
+                        HistoryActivity.this.startActivity(intent);
+                    }
+                });
             }
         };
+        recyclerView.setAdapter(firebaseRecyclerAdapter);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_search, menu);
+        MenuItem menuItem = menu.findItem(R.id.menuSearch);
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+        searchView.setQueryHint("Pharmacy Name");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                Query Q = databaseReference.orderByChild("pharmacyName").startAt(newText).endAt(newText + "\uf8ff");
+
+                firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<ImageUpload, HistoryViewHolder>(ImageUpload.class, R.layout.image_item, HistoryViewHolder.class, Q) {
+                    @Override
+                    protected void populateViewHolder(HistoryViewHolder viewHolder, final ImageUpload model, final int position) {
+                        viewHolder.set_pharmacy.setText(model.getPharmacyName());
+                        viewHolder.set_practice.setText(model.getPracticeNo());
+                        viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                            @Override
+                            public boolean onLongClick(View v) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(HistoryActivity.this);
+                                builder.setMessage("Do you want to delete this data?").setCancelable(true).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        int selectedItems = position;
+                                        firebaseRecyclerAdapter.getRef(selectedItems).removeValue();
+                                        firebaseRecyclerAdapter.notifyItemRemoved(selectedItems);
+                                        recyclerView.invalidate();
+                                        onStart();
+                                    }
+                                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = builder.create();
+                                dialog.setTitle("Confirm");
+                                dialog.show();
+
+                                return false;
+                            }
+                        });
+                        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(HistoryActivity.this, DetailActivity.class);
+                                intent.putExtra("PHARMACY_KEY", model.getPharmacyName());
+                                intent.putExtra("PRACTICE_KEY", model.getPracticeNo());
+                                HistoryActivity.this.startActivity(intent);
+                            }
+                        });
+                    }
+                };
+                recyclerView.setAdapter(firebaseRecyclerAdapter);
+                return false;
+            }
+        });
+        return true;
+
     }
 }
+
+
+
+
 
 
 

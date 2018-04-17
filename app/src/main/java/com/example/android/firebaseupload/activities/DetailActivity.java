@@ -70,39 +70,28 @@ public class DetailActivity extends AppCompatActivity {
 //bind data
         detailPharmacyName.setText(pharmacyName);
         detailPracticeNo.setText(practiceNo);
-
-
-
         mDatabaseUsers.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
                     ImageUpload imageUpload = postSnapShot.getValue(ImageUpload.class);
-
                     String customerName = imageUpload.getCustomerName();
                     String message = imageUpload.getMessage();
                     String startKm = imageUpload.getStartKm();
                     String endKm = imageUpload.getEndKm();
-
-
                     Name_Detail.setText(customerName);
                     message_Detail.setText(message);
                     startKilo.setText(startKm);
                     endKilo.setText(endKm);
-
                 }
                 }
-
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-
     }
-
-        }
+}
 
 
