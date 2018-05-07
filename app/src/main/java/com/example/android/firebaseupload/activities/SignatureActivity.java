@@ -23,13 +23,16 @@ import android.widget.Toast;
 import com.example.android.firebaseupload.R;
 import com.github.gcacace.signaturepad.views.SignaturePad;
 
+
+
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
-public class SignatureActivity extends AppCompatActivity {
+        public class SignatureActivity extends AppCompatActivity {
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
@@ -42,6 +45,9 @@ public class SignatureActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         verifyStoragePermissions(this);
         setContentView(R.layout.activity_sign);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mSignaturePad = (SignaturePad) findViewById(R.id.signature_pad);
         mSignaturePad.setOnSignedListener(new SignaturePad.OnSignedListener() {
@@ -77,11 +83,7 @@ public class SignatureActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(SignatureActivity.this, "Unable to store the signature", Toast.LENGTH_SHORT).show();
                 }
-                if (addSvgSignatureToGallery(mSignaturePad.getSignatureSvg())) {
-                    Toast.makeText(SignatureActivity.this, "SVG Signature saved into the Gallery", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(SignatureActivity.this, "Unable to store the SVG signature", Toast.LENGTH_SHORT).show();
-                }
+
             }
         });
     }
@@ -179,29 +181,17 @@ public class SignatureActivity extends AppCompatActivity {
         }
     }
 
+            @Override
+            public boolean onOptionsItemSelected(MenuItem item) {
+                switch (item.getItemId()) {
+                    case android.R.id.home:
+                        onBackPressed();
+                        return true;
+                }
+                return super.onOptionsItemSelected(item);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.invoice:
-                Intent invoice = new Intent(this, InvoiceActivity.class);
-                startActivity(invoice);
-                return true;
-            case R.id.history:
-                Intent history = new Intent(this, HistoryActivity.class);
-                startActivity(history);
-                return true;
-
-
-
-        }
-        return super.onOptionsItemSelected(item);
     }
 }
+
+
+

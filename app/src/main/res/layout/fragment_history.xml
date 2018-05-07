@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.android.firebaseupload.activities.HistoryActivity"
-    android:background="#FFFF">
+    tools:context=".fragments.HistoryFragment"
+    android:background="@color/colorAccent">
 
-    <include
-        layout="@layout/toolbar_layout">
 
-    </include>
+
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/RecyclerView"

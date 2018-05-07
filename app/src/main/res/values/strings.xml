@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">signature</string>
+    <string name="app_name">Xprocure</string>
     <string name="clear_pad">Clear Pad</string>
     <string name="save_signature">Save Signature</string>
     <string name="action_settings">Settings</string>
@@ -7,8 +7,23 @@
     <string name="title_history">History</string>
     <string name="Requests">Requests</string>
     <string name="title_upload">Send Data</string>
+    <string name="Invoice_number">Invoice No:</string>
+    <string name="action_taken"> Action Taken:</string>
+    <string name="PharmacistName">Pharmacist Name</string>
+    <string name="startkilo">Start Km:</string>
+    <string name="endKilo">End Km:</string>
+    <string name="pharmacyName">Pharmacy Name</string>
+    <string name="pharmacistName">Pharmacist Name</string>
+    <string name="practiceNo">Practice No:</string>
+    <string name="InitialCheckList">Initial Checklist</string>
+    <string name="send">Send</string>
+    <string name="signature">Signature</string>
+    <string name="CallRegister">Register</string>
+    <string name="pharmacyDetails">Pharmacy Details</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_deletethis">deletethis</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

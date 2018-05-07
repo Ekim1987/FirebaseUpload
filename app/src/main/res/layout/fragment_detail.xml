@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#a8a8a8"
     android:orientation="vertical"
-    android:weightSum="1"
-    tools:context="com.example.android.firebaseupload.activities.DetailActivity"
-    android:background="#a8a8a8">
+    android:id="@+id/layout_container"
+    android:weightSum="1">
 
 
     <LinearLayout
@@ -37,7 +36,7 @@
 
     <LinearLayout
 
-        android:layout_width="203dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.01"
         android:orientation="vertical">
@@ -45,53 +44,51 @@
         <TextView
 
             android:id="@+id/detailPharmacy"
-            android:layout_width="196dp"
+            android:layout_width="516dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/detailPharmacy"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/edittext_border"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/customborder"
             android:text="TextView"
             android:weightSum="1" />
 
         <TextView
             android:id="@+id/detailPractice"
-            android:layout_width="125dp"
+            android:layout_width="516dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/edittext_border"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/customborder"
             android:text="TextView"
             android:weightSum="1" />
 
 
-
     </LinearLayout>
 
     <LinearLayout
-        android:paddingTop="5dp"
-        android:layout_width="225dp"
-        android:layout_height="142dp"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center">
 
-        <ImageView
-            android:id="@+id/imageViewDetail"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/edittext_border" />
+        <TextView
+            android:id="@+id/NameDetail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/customborder" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/buttons_container"
-        android:paddingTop="8dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="15dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:paddingTop="25dp">
 
 
         <TextView
@@ -99,36 +96,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:enabled="false"
-            android:background="@drawable/edittext_border"
-            />
+            android:background="@drawable/customborder"
+            android:enabled="false" />
 
         <TextView
             android:id="@+id/endKM"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:enabled="false"
             android:layout_marginLeft="20dp"
-            android:background="@drawable/edittext_border"
-             />
-
-
-
-
-</LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:weightSum="1">
-
-        <TextView
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/NameDetail"
-            android:layout_weight="0.61"
-            android:background="@drawable/edittext_border"/>
-
+            android:layout_weight="1"
+            android:background="@drawable/customborder"
+            android:enabled="false" />
     </LinearLayout>
 
     <LinearLayout
@@ -137,7 +115,7 @@
         android:layout_height="45dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/edittext_border">
+        android:background="@drawable/customborder">
 
         <TextView
             android:id="@+id/messageDetail"
@@ -145,5 +123,20 @@
             android:layout_height="match_parent" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="225dp"
+        android:layout_height="142dp"
+        android:orientation="horizontal"
+        android:paddingTop="5dp">
+
+        <ImageView
+            android:id="@+id/imageViewDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/customborder" />
+    </LinearLayout>
+
 
 </LinearLayout>
