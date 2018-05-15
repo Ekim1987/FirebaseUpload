@@ -3,15 +3,19 @@ package com.example.android.firebaseupload.fragments;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.provider.OpenableColumns;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +43,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Calendar;
 
 public class InvoiceFragment extends Fragment {
 
@@ -55,6 +60,7 @@ public class InvoiceFragment extends Fragment {
     public static final String FB_STORAGE_PATH = "image/";
     public static final String FB_DATABASE_PATH = "image";
     public static final int REQUEST_CODE = 1234;
+    private TextView Date;
 
     ;
 
@@ -102,6 +108,7 @@ public class InvoiceFragment extends Fragment {
                 btnBrowse_click(v);
             }
         });
+        currentDate (view);
         return view;
 
     }
@@ -111,6 +118,8 @@ public class InvoiceFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mStorageReference = FirebaseStorage.getInstance().getReference();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
+
+
 
     }
 
@@ -139,6 +148,7 @@ public class InvoiceFragment extends Fragment {
             uri = data.getData();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uri);
+
                 imageView.setImageBitmap(bitmap);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -146,7 +156,9 @@ public class InvoiceFragment extends Fragment {
                 e.printStackTrace();
             }
         }
-    }
+
+
+        }
 
     public String getImageExt(Uri uri) {
         ContentResolver contentResolver = getActivity().getContentResolver();
@@ -169,8 +181,8 @@ public class InvoiceFragment extends Fragment {
                     progressDialog.dismiss();
                     Toast.makeText(getActivity(), "Upload successful", Toast.LENGTH_LONG).show();
                     ImageUpload imageUpload = new ImageUpload(
-                            pharmacyName.getText().toString().trim()
-                            , practiceNo.getText().toString()
+
+pharmacyName.getText().toString(), practiceNo.getText().toString()
                             , taskSnapshot.getDownloadUrl().toString(),
                             customerName.getText().toString()
                             , message.getText().toString()
@@ -240,5 +252,18 @@ public class InvoiceFragment extends Fragment {
 //        }
 //
 //        return true;
+    }
+    public void currentDate(View view){
+        Date = (TextView) view.findViewById(R.id.currentDate);
+        final Calendar cal = Calendar.getInstance();
+         int dd = cal.get(Calendar.DAY_OF_MONTH);
+        int mm= cal.get(Calendar.MONTH);
+        int yy = cal.get(Calendar.YEAR);
+// set current date into textview
+        Date.setText(new StringBuilder()
+// Month is 0 based, just add 1
+                .append(dd).append("").append("/").append(mm + 1).append("/")
+                .append(yy));
+
     }
 }

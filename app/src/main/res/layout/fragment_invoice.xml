@@ -1,324 +1,538 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    android:orientation="vertical"
 
->
+
+    >
 
     <LinearLayout
-        android:id="@+id/linearLayoutInvoice"
-        android:layout_width="125dp"
-        android:layout_height="25dp"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/appBarLayout"
-        android:layout_gravity="top|end"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1"
+     >
+
 
         <TextView
-            android:id="@+id/InvoiceText"
+            android:id="@+id/currentDate"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutInvoice"
+            android:layout_width="125dp"
             android:layout_height="25dp"
-            android:maxLines="1"
-            android:text="@string/Invoice_number"
-            android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/invoiceCounter"
+
+            android:layout_marginStart="18dp"
+
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/InvoiceText"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:maxLines="1"
+                android:text="@string/Invoice_number"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/invoiceCounter"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:maxLines="1"
+                android:text="123456"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:maxLines="1"
-            android:text="123456"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="8dp"
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/view"
-        android:layout_below="@+id/linearLayoutInvoice"
-        android:layout_marginEnd="18dp"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/ETphamracyName"
-            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
             android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/customborder"
-            android:hint="@string/pharmacyName"
-            android:inputType="text|textCapWords"
-            android:minLines="1"
 
-            android:textColorHint="@color/grey"
-            android:textSize="14sp"
-            android:nextFocusDown="@+id/ETpraticeNumber"/>
-
-        <EditText
-            android:id="@+id/ETpraticeNumber"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/customborder"
-            android:hint="@string/practiceNo"
-            android:inputType="number"
-            android:maxLength="7"
-            android:minLines="1"
-            android:textColorHint="@color/grey"
-            android:textSize="14sp" />
-
-    </LinearLayout>
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/linearLayout"
-        android:layout_marginEnd="18dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/white" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignEnd="@+id/linearLayout"
-        android:layout_alignStart="@+id/linearLayout"
-        android:layout_below="@+id/view"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/etPharmacistName"
-            android:layout_width="277dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/customborder"
-            android:hint="@string/PharmacistName"
-            android:textSize="14sp"
-
-            android:textColorHint="@color/grey"
-            android:minLines="1"
-            android:inputType="text|textCapWords"/>
+            android:orientation="horizontal">
 
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/ETphamracyName"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+                android:hint="@string/pharmacyName"
+                android:inputType="text|textCapWords"
+                android:minLines="1"
+                android:maxLength="33"
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_marginEnd="18dp"
-        android:layout_marginStart="18dp"
-        android:background="@color/white" />
+                android:nextFocusDown="@+id/ETpraticeNumber"
+                android:textColorHint="@color/grey"
+                android:textSize="14sp" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_alignStart="@+id/linearLayout2"
-        android:layout_below="@+id/view2"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/messagecustomborder"
-        android:orientation="horizontal">
+            <EditText
+                android:id="@+id/ETpraticeNumber"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+                android:hint="@string/practiceNo"
+                android:inputType="number"
+                android:maxLength="7"
+                android:minLines="1"
+                android:textColorHint="@color/grey"
+                android:textSize="14sp" />
 
-        <EditText
-            android:id="@+id/ETmessage"
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="@android:color/transparent"
-            android:gravity="top|left"
-            android:hint="@string/action_taken"
-            android:nextFocusDown="@+id/ETstart"
-            android:textColorHint="@color/grey"
-            android:inputType="text|textCapSentences"
-            android:textSize="14sp" />
+            android:layout_height="1dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/white" />
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical">
 
-    <View
-        android:id="@+id/view3"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_alignStart="@+id/linearLayout3"
-        android:layout_below="@+id/linearLayout3"
-        android:layout_marginEnd="18dp"
-        android:layout_marginTop="36dp"
-        android:background="@color/white"
-        android:orientation="horizontal">
+            <EditText
+                android:id="@+id/etPharmacistName"
+                android:layout_width="277dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/customborder"
+                android:hint="@string/PharmacistName"
+                android:inputType="text|textCapWords"
+                android:minLines="1"
+                android:maxLength="30"
+                android:textColorHint="@color/grey"
+                android:textSize="14sp" />
 
-    </View>
 
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_alignStart="@+id/view3"
-        android:layout_below="@+id/view3"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/btAttach"
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+
+            android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
+            android:background="@color/white" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/messagecustomborder"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/ETmessage"
+                android:layout_width="565dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="@android:color/transparent"
+                android:gravity="top|left"
+                android:hint="@string/action_taken"
+                android:inputType="text|textCapSentences"
+                android:nextFocusDown="@+id/ETstart"
+                android:textColorHint="@color/grey"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="36dp"
+
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+        </View>
+
+        <LinearLayout
+
+            android:id="@+id/layout_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
+     
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+
+            android:weightSum="1">
+
+            <ImageButton
+                android:id="@+id/btAttach"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/ic_attach"
+                android:layout_marginEnd="8dp"/>
+
+            <ImageButton
+
+                android:id="@+id/btSignature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                
+                android:layout_marginEnd="8dp"
+                android:background="@mipmap/ic_signature"
+
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="65dp"
+            android:layout_height="31dp"
+
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/invoiceImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="18dp" />
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+        </View>
+
+        <LinearLayout
+            android:id="@+id/startEndLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/ETstart"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="0.92"
+                android:background="@drawable/customborder"
+                android:hint="@string/startkilo"
+                android:inputType="number"
+                android:maxLength="6"
+                android:minLines="1"
+                android:nextFocusDown="@+id/ETend"
+                android:textColorHint="@color/grey"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/ETend"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+                android:hint="@string/endKilo"
+                android:inputType="number"
+                android:maxLength="6"
+                android:minLines="1"
+                android:textColorHint="@color/grey"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/ic_attach"
-           />
-    </LinearLayout>
+            android:layout_height="45dp"
+            android:layout_weight="6.14"
 
-    <View
-        android:id="@+id/view4"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_alignStart="@+id/linearLayout"
-        android:layout_below="@+id/linearLayout4"
-        android:layout_marginEnd="18dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/white"
-        android:orientation="horizontal">
-
-    </View>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:orientation="horizontal"
-        android:layout_below="@+id/view4"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/startEndLinearLayout">
-
-        <EditText
-            android:id="@+id/ETstart"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/customborder"
-            android:hint="@string/startkilo"
-            android:inputType="number"
-            android:minLines="1"
-            android:maxLength="6"
-            android:textColorHint="@color/grey"
-            android:textSize="14sp"
-            android:nextFocusDown="@+id/ETend"/>
-
-        <EditText
-            android:id="@+id/ETend"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/customborder"
-            android:hint="@string/endKilo"
-            android:inputType="number"
-            android:maxLength="6"
-            android:minLines="1"
-            android:textColorHint="@color/grey"
-            android:textSize="14sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:orientation="horizontal"
-
-        android:layout_above="@+id/view4"
-        android:layout_alignEnd="@+id/view3">
-
-        <ImageButton
-
-            android:id="@+id/btSignature"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/ic_signature"
-            />
+            android:orientation="vertical">
 
 
-
-    </LinearLayout>
-
-    <View
-        android:id="@+id/view5"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_alignStart="@+id/linearLayout"
-        android:layout_below="@+id/startEndLinearLayout"
-        android:layout_marginEnd="18dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/white"
-        android:orientation="horizontal">
-
-    </View>
+        </LinearLayout>
 
 
-
-    <LinearLayout
-        android:layout_width="45dp"
-        android:layout_height="match_parent"
-        android:layout_alignStart="@+id/startEndLinearLayout"
-        android:layout_alignTop="@+id/linearLayout4"
-        android:orientation="horizontal"
-        android:layout_above="@+id/view4">
-
-        <ImageView
+        <View
+            android:id="@+id/view5"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/invoiceImageView"/>
+            android:layout_height="1dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+        </View>
+
+
+        <LinearLayout
+            android:id="@+id/checkList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/actionName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="8dp"
+
+                android:paddingTop="8dp"
+                android:text="@string/actionName"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/Adverts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="18dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/Adverts"
+                android:buttonTint="@color/colorPrimary"/>
+
+
+            <CheckBox
+                android:id="@+id/regionalSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="8dp"
+                android:paddingTop="8dp"
+                android:text="@string/regionalSettings"
+                android:buttonTint="@color/colorPrimary"/>
+
+            <CheckBox
+                android:id="@+id/preferenceScreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="18dp"
+                android:layout_marginStart="18dp"
+                android:paddingTop="8dp"
+                android:text="@string/preferenceScreen"
+                android:buttonTint="@color/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="8dp"
+
+                android:paddingTop="8dp"
+                android:text="Check suppliers and Action:"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/suppliersAndAction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginStart="18dp"
+                android:paddingTop="8dp"
+                android:text="@string/suppliersAndAction"
+                android:buttonTint="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/trainingTextView"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:buttonTint="@color/colorPrimary"/>
+
+            <CheckBox
+                android:id="@+id/customerTraining"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="8dp"
+                android:paddingTop="8dp"
+                android:text="@string/training"
+                android:buttonTint="@color/colorPrimary"/>
+
+            <CheckBox
+                android:id="@+id/sendOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="8dp"
+                android:paddingTop="8dp"
+                android:text="@string/sendAnOrder"
+                android:buttonTint="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/windowsAction"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="2dp"
+                android:text="@string/windowsXP"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <CheckBox
+                android:id="@+id/windowsVersions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="2dp"
+                android:paddingTop="8dp"
+                android:text="@string/windowsVersions"
+                android:buttonTint="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="2dp"
+                android:text="@string/windows8"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+
+                android:id="@+id/windows8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="2dp"
+                android:paddingTop="8dp"
+                android:buttonTint="@color/colorPrimary"
+                android:text="@string/window8RegionalSettings" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="2dp"
+                android:text="@string/PODForm"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/button_send_clearpad"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            >
+
+
+            <Button
+                android:id="@+id/clear_button"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+                android:onClick="btnClearPad"
+                android:text="@string/clear_pad"
+                android:textColor="@color/grey"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/send_button"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+                android:onClick="btnUpload_Click"
+                android:text="@string/send"
+                android:textColor="@color/grey"
+                android:textSize="18sp" />
+        </LinearLayout>
 
 
     </LinearLayout>
-
-    <LinearLayout
-    android:id="@+id/buttons_container"
-    android:paddingTop="8dp"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginBottom="15dp"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentStart="true">
-
-    <Button
-        android:onClick="btnClearPad"
-        android:id="@+id/clear_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/clear_pad"
-        android:background="@drawable/customborder"
-        android:layout_marginEnd="8dp"
-        android:textSize="18sp"
-        android:layout_marginStart="8dp"
-        android:textColor="@color/grey"
-        />
-
-    <Button
-        android:onClick="btnUpload_Click"
-        android:id="@+id/send_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/send"
-        android:textSize="18sp"
-        android:background="@drawable/customborder"
-        android:layout_marginEnd="8dp"
-        android:textColor="@color/grey"/>
-    </LinearLayout>
-
-
-</RelativeLayout>
+</ScrollView>

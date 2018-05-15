@@ -21,21 +21,20 @@
         <activity
             android:name=".activities.MainActivity"
             android:label="Xprocure"
-            android:windowSoftInputMode="stateHidden|adjustPan"
-            >
+            android:windowSoftInputMode="stateHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-        android:name=".activities.SignatureActivity"
-        android:label="@string/signature" />
+            android:name=".activities.SignatureActivity"
+            android:label="@string/signature" />
 
 
-
+        <activity android:name=".activities.DetailActivity"
+            android:label="@string/pharmacyDetails"/>
     </application>
 
-    </manifest>
+</manifest>

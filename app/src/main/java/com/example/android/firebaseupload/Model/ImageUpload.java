@@ -1,6 +1,8 @@
 package com.example.android.firebaseupload.Model;
 
 
+import com.google.firebase.database.Exclude;
+
 public class ImageUpload {
 
     public String pharmacyName;
@@ -11,6 +13,11 @@ public class ImageUpload {
     public String startKm;
     public String endKm;
     public String invoiceCounter;
+    public String mKey;
+
+
+
+
 
     public ImageUpload(String pharmacyName, String practiceNo) {
         this.pharmacyName = pharmacyName;
@@ -59,6 +66,15 @@ public class ImageUpload {
 
     public ImageUpload() {
     }
+    @Exclude
+    public String getmKey() {
+        return mKey;
+    }
+    @Exclude
+    public void setmKey(String mKey) {
+        this.mKey = mKey;
+    }
+
 
     public String getInvoiceCounter() {
         return invoiceCounter;
@@ -77,6 +93,7 @@ public class ImageUpload {
         this.startKm = startKm;
         this.endKm = endKm;
         this.invoiceCounter=invoiceCounter;
+
 
     }
     public String getPharmacyName() {

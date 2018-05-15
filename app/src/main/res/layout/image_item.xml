@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-
+    android:id="@+id/item_view"
     android:orientation="vertical"
     app:cardElevation="4dp">
 
@@ -43,11 +43,7 @@
             android:textSize="13sp"/>
 
 
-        <!--<TextView-->
-        <!--android:id="@+id/tvDate"-->
-        <!--android:layout_width="118dp"-->
-        <!--android:layout_height="wrap_content"-->
-        />
+
     </LinearLayout>
 
 

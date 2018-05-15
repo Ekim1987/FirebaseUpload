@@ -20,6 +20,44 @@
     <string name="signature">Signature</string>
     <string name="CallRegister">Register</string>
     <string name="pharmacyDetails">Pharmacy Details</string>
+    <string name="requiredField">Required Field</string>
+    <string name="Adverts">Replace all version using CD.
+Check that Adverts and Browser Window are displaying correctly.</string>
+    <string name="regionalSettings">Check Regional settings.Date and Time Format (dd/MM/yyyy and HH:mm:ss)
+    Assign full access on the X/procure® folder to everyone and users at every pharmacy visit.</string>
+    <string name="preferenceScreen"> Check pharmacy info in Prefs screen.Ensure ALL details are entered.(Phy name,tel,fax,email,postal + physical address)NO SPECIAL CHARACTERS ALLOWED</string>
+    <string name="suppliersAndAction"> 1.Enquire if the Pharmacy have any other accounts and load them if required.
+    2.When ADCOCK is loaded OPUS,NORGINE and HEELSA must also be loaded with same account as ADCOCK.
+    3.Check that if Kemco is loaded,Kemco B and account numbers are correctly entered.4. Check IHD account and Branch code.
+    5.If Alpha Pharm Durban account is loaded load NWC,DWC Base + Sub classes B and C.
+    6.UPD Clicks must be loaded at Clicks,please make sure the following classes are loaded for each respective region:PPPJHB,PPPBF,PPPCT,PPPDBN,PEUPDSP.
+    7.At Clicks please map a network drive as x: to the Samba server and point the Integration Import and Export paths to X:
+    8. When loading Pharma dynamics or UPD a serial number must be setup in back office and this can take up to 24h. </string>
+    <string name="trainingTextView">Training:Please train customers on the following:</string>
+    <string name="actionName">Action:</string>
+    <string name="training"> 1.Regret re-order,if many regrets consider setting (DelRegretsOlderThan=60)
+    2. Use X/procure training check list when full training is provided.
+    3. Show where to find the help desk number.
+    4. Check the integration and ask if they need the integration installed.
+    5. Also provide training where needed.</string>
+    <string name="sendAnOrder"> Send an order and make sure FTPSync and Data Sync works,include
+        Order number in B and F,if the client does not want to order then phone help desk for an out
+        of stock item of the day that you can order.</string>
+    <string name="windowsAction">Action that needs to be taken with different Windows version:
+   </string>
+    <string name="windowsXP"> 1. Windows XP and Windows Vista</string>
+    <string name="windowsVersions">a. Windows XP Home,it is not advisable,please advise customer.
+    b. Service Pack 2 must be installed.c.Set Windows to Best Performance.d. Check Windows paging file
+        and set to recommended size.e. In Win Vista or Higher check Regional settings Digital
+        Grouping Symbol must have a comma.
+    </string>
+    <string name="windows8">2. Windows 8:</string>
+    <string name="window8RegionalSettings">Make sure this following has been updated in regional settings.
+    a.Under numbers change the decimal symbol to a full stop.Change the digital grouping symbol to a comma
+    and change the list separator to a comma.Under currency change the decimal symbol to a comma and change
+    the digit grouping symbol to a comma.</string>
+    <string name="PODForm">When installing any form of Hardware to load.Complete a Load POD Form:</string>
+
 
 
     <!-- TODO: Remove or change this placeholder text -->

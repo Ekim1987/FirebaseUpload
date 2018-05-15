@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(new SectionsPagerAdapter(getSupportFragmentManager()));
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
+//
+
 
 
     }
